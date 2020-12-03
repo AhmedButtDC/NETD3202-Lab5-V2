@@ -1,0 +1,35 @@
+﻿@model NETD3202_Lab5_V2.Models.MoreDetail
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div style="margin-left: 40%; margin-right: 10%;">
+    <h4 style="margin-left: -10%;">Edit Video Game</h4>
+    <hr style="margin-left: -10%;"/>
+    <div class="row">
+        <div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="gID" />
+                <div class="form-group">
+                    <label asp-for="gID" class="control-label">Game ID</label>
+                    <input asp-for="gID" class="form-control" value="@Model.gID" disabled/>
+                    <span asp-validation-for="gID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="description" class="control-label">Description</label>
+                    <textarea asp-for="description" class="form-control" placeholder="Storyline, concept, etc.">
+                    </textarea>
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="margin-left: -10%">
+        <a style="color: black" asp-controller="VideoGames" asp-action="Index">Video Game List</a>&nbsp;&nbsp;
+        <a style="color: black" asp-action="Index">More Details List</a>
+    </div>
+</div>

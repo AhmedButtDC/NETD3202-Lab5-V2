@@ -1,0 +1,42 @@
+﻿@model IEnumerable<NETD3202_Lab5_V2.Models.MoreDetail>
+
+@{
+    ViewData["Title"] = "List";
+}
+<div style="margin-left: 30%; margin-right: 10%;">
+    <h1>List</h1>
+    <p>
+        <a style="color: black" asp-action="Create">Add New</a>
+    </p>
+    <h4>@ViewData["Error"]</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Game ID
+                </th>
+                <th>
+                    Description
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.description)
+                    </td>
+                    <td>
+                        <a style="color: black" asp-action="Edit" asp-route-id="@item.gID">Edit</a> |
+                        <a style="color: black" asp-action="Details" asp-route-id="@item.gID">Details</a> |
+                        <a style="color: black" asp-action="Delete" asp-route-id="@item.gID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

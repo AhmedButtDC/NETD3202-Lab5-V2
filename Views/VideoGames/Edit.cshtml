@@ -1,0 +1,50 @@
+﻿@model NETD3202_Lab5_V2.Models.VideoGame
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div style="margin-left: 40%; margin-right: 10%;">
+    <h4 style="margin-left: -10%;">Edit Video Game</h4>
+    <hr style="margin-left: -10%;"/>
+    <div class="row">
+        <div>
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="gameID" />
+                <div class="form-group">
+                    <label asp-for="gameName" class="control-label">Game Name</label>
+                    <input asp-for="gameName" class="form-control" placeholder="e.g. Pokémon" />
+                    <span asp-validation-for="gameName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="releaseYear" class="control-label">Release Year</label>
+                    <input asp-for="releaseYear" class="form-control" placeholder="e.g. 1996" />
+                    <span asp-validation-for="releaseYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="esrb" class="control-label">ESRB</label>
+                    <input asp-for="esrb" class="form-control" placeholder="" />
+                    <span asp-validation-for="esrb" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="rating" class="control-label">Your Rating</label>
+                    <select asp-for="rating" class="form-control">
+                        <option disabled>Select a Rating</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <span asp-validation-for="rating" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div style="margin-left: -10%">
+        <a style="color: black" asp-action="Index">Back to List</a>
+    </div>
+</div>

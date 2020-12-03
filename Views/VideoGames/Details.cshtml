@@ -1,0 +1,42 @@
+﻿@model NETD3202_Lab5_V2.Models.VideoGame
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div style="margin-left: 30%; margin-right: 10%;">
+    <div>
+        <h4>@Html.DisplayFor(model => model.gameName) Details</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-5">
+                Game Name
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.gameName)
+            </dd>
+            <dt class="col-sm-5">
+                Release Year
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.releaseYear)
+            </dd>
+            <dt class="col-sm-5">
+                ESRB
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.esrb)    
+            </dd>
+            <dt class="col-sm-5">
+                Rating
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.rating)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a style="color: black" asp-action="Edit" asp-route-id="@Model.gameID">Edit</a>&nbsp;&nbsp;
+        <a style="color: black" asp-controller="MoreDetails" asp-action="Details" asp-route-id="@Model.gameID">More Details</a>&nbsp;&nbsp;
+        <a style="color: black" asp-action="Index">Back to List</a>
+    </div>
+</div>
