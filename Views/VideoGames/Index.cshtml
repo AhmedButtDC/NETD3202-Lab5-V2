@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "List";
 }
-<div style="margin-left: 30%; margin-right: 10%;">
-    <h1>List</h1>
+<div style="margin-left: 20%; margin-right: 10%;">
+    <h1>Video Game List</h1>
 
     <p>
         <a style="color: black" asp-action="Create">Add New</a>
@@ -12,6 +12,9 @@
     <table class="table">
         <thead>
             <tr>
+                <th>
+                    Game ID
+                </th>
                 <th>
                     Game Name
                 </th>
@@ -28,8 +31,12 @@
             </tr>
         </thead>
         <tbody>
-    @foreach (var item in Model) {
+            @foreach (var item in Model)
+            {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gameID)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.gameName)
                 </td>
@@ -48,7 +55,10 @@
                     <a style="color: black" asp-action="Delete" asp-route-id="@item.gameID">Delete</a>
                 </td>
             </tr>
-    }
+            }
         </tbody>
     </table>
+    <p class="lead" style="margin-left: 30%; margin-right: 0%;">
+        <a asp-controller="MoreDetails" asp-action="Index" class="btn btn-lg btn-secondary">Additional Details List</a>
+    </p>
 </div>

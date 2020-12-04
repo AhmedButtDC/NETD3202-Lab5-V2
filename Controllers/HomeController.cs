@@ -18,16 +18,19 @@ namespace NETD3202_Lab5_V2.Controllers
             _logger = logger;
         }
 
+        //Returns Index page in Home folder
         public IActionResult Index()
         {
             return View();
         }
 
+        //Unused
         public IActionResult Privacy()
         {
             return View();
         }
 
+        //Unused
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

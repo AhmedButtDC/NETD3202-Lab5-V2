@@ -13,6 +13,7 @@ namespace NETD3202_Lab5_V2.Controllers
 {
     public class AccountController : Controller
     {
+        //Returns Index page in Account folder
         public IActionResult Index()
         {
             return View();
@@ -34,6 +35,7 @@ namespace NETD3202_Lab5_V2.Controllers
 
         #region Helpers
 
+        //Adds up the errors
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
@@ -42,6 +44,7 @@ namespace NETD3202_Lab5_V2.Controllers
             }
         }
 
+        //Redirects to Index
         private IActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -56,6 +59,7 @@ namespace NETD3202_Lab5_V2.Controllers
 
         #endregion
 
+        //Allows user to enter registration information
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
@@ -64,6 +68,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View();
         }
 
+        //Adds users information to the database
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -87,6 +92,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(model);
         }
 
+        //Allows user to enter login information
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Login(string returnUrl = null)
@@ -97,6 +103,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View();
         }
 
+        //Logs the user in with spcified information
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -125,6 +132,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(model);
         }
 
+        //Locks user out
         [HttpGet]
         [AllowAnonymous]
         public IActionResult Lockout()
@@ -132,6 +140,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View();
         }
 
+        //Logs user out
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -141,6 +150,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        //Allows user that forgot password to enter thier email
         [HttpGet]
         public IActionResult ForgotPassword(string returnUrl = null)
         {
@@ -148,6 +158,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View();
         }
 
+        //Finds user with specified email
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordModel model, string returnUrl = null)
@@ -171,6 +182,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return RedirectToAction(nameof(ResetPassword), new { token = genToken, email = model.Email });
         }
 
+        //Reset Password Page - Allows user to new password
         [HttpGet]
         public IActionResult ResetPassword(string token, string email, string returnUrl = null)
         {
@@ -185,6 +197,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(model);
         }
 
+        //Reset Password Page - Resets the users password
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model, string returnUrl = null)

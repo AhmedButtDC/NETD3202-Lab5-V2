@@ -1,4 +1,11 @@
-﻿using System;
+﻿//Name:             Ahmed Butt
+//Student ID:       100770449
+//Project:          NETD3202 Lab 5
+//Last Modified:    Dec 3, 2020
+
+//This model is for VideoGames. Each page in VideoGames folder uses this to function correctly.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

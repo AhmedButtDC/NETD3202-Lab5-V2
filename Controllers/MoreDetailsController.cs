@@ -18,11 +18,13 @@ namespace NETD3202_Lab5_V2.Controllers
             _context = context;
         }
 
+        //Returns Index Page in MoreDetail Folder
         public async Task<IActionResult> Index()
         {
             return View(await _context.MoreDetails.ToListAsync());
         }
 
+        //Details Page - Allows user to view specific MoreDetails object
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,11 +42,13 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(moreDetails);
         }
 
+        //Create Page - Allows user to enter information for new item
         public IActionResult Create()
         {
             return View();
         }
 
+        //Post Create Page - Acts as a validation page and returns an error page if an error is found
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("gID,description")] MoreDetail moreDetail)
@@ -65,6 +69,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(moreDetail);
         }
 
+        //Edit Page - Allows user to edit item
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,6 +87,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(moreDetail);
         }
 
+        //Post Edit Page - Acts as a validation page
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("gID,description")] MoreDetail moreDetail)
@@ -114,6 +120,7 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(moreDetail);
         }
 
+        //Delete Page - Allows user to confirm a deletion
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,6 +138,8 @@ namespace NETD3202_Lab5_V2.Controllers
             return View(moreDetail);
         }
 
+
+        //Post Delete Page - Deletes an item
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -141,11 +150,13 @@ namespace NETD3202_Lab5_V2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        //UnknownID Page - Displays an error message
         public IActionResult UnknownID()
         {
             return View();
         }
 
+        //Checks if MoreDetails exists
         private bool MoreDetailExists(int id)
         {
             return _context.MoreDetails.Any(e => e.gID == id);

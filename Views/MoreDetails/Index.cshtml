@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "List";
 }
-<div style="margin-left: 30%; margin-right: 10%;">
-    <h1>List</h1>
+<div style="margin-left: 20%; margin-right: 10%;">
+    <h1>More Details List</h1>
     <p>
         <a style="color: black" asp-action="Create">Add New</a>
     </p>
@@ -39,4 +39,7 @@
             }
         </tbody>
     </table>
+    <p class="lead" style="margin-left: 30%; margin-right: 0%;">
+        <a asp-controller="VideoGames" asp-action="Index" class="btn btn-lg btn-secondary">Video Game List</a>
+    </p>
 </div>
