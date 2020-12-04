@@ -1,4 +1,5 @@
-﻿@model IEnumerable<NETD3202_Lab5_V2.Models.VideoGame>
+﻿<!--This page allows user to view the list of VideoGame objects-->
+@model IEnumerable<NETD3202_Lab5_V2.Models.VideoGame>
 
 @{
     ViewData["Title"] = "List";
@@ -33,28 +34,28 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.gameID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.gameName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.releaseYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.esrb)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.rating)
-                </td>
-                <td>
-                    <a style="color: black" asp-action="Edit" asp-route-id="@item.gameID">Edit</a> |
-                    <a style="color: black" asp-action="Details" asp-route-id="@item.gameID">Details</a> |
-                    <a style="color: black" asp-action="Delete" asp-route-id="@item.gameID">Delete</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gameID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gameName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.releaseYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.esrb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.rating)
+                    </td>
+                    <td>
+                        <a style="color: black" asp-action="Edit" asp-route-id="@item.gameID">Edit</a> |
+                        <a style="color: black" asp-action="Details" asp-route-id="@item.gameID">Details</a> |
+                        <a style="color: black" asp-action="Delete" asp-route-id="@item.gameID">Delete</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

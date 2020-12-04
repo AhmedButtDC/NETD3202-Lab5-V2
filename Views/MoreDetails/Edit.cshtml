@@ -1,11 +1,12 @@
-﻿@model NETD3202_Lab5_V2.Models.MoreDetail
+﻿<!--This page allows user to view the edit an existing MoreDetail objects-->
+@model NETD3202_Lab5_V2.Models.MoreDetail
 
 @{
     ViewData["Title"] = "Edit";
 }
 <div style="margin-left: 40%; margin-right: 10%;">
     <h4 style="margin-left: -10%;">Edit Video Game</h4>
-    <hr style="margin-left: -10%;"/>
+    <hr style="margin-left: -10%;" />
     <div class="row">
         <div>
             <form asp-action="Edit">
@@ -13,7 +14,7 @@
                 <input type="hidden" asp-for="gID" />
                 <div class="form-group">
                     <label asp-for="gID" class="control-label">Game ID</label>
-                    <input asp-for="gID" class="form-control" value="@Model.gID" disabled/>
+                    <input asp-for="gID" class="form-control" value="@Model.gID" disabled />
                     <span asp-validation-for="gID" class="text-danger"></span>
                 </div>
                 <div class="form-group">
